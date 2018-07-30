@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title id="title-time"></title>
+<head>
+	<script>
+		function startTime() {
+			var today = new Date();
+			var hour = today.getHours();
+			var min = today.getMinutes();
+			var sec = today.getSeconds();
+			var date=today.getDate();
+			var month=today.getMonth();
+			var year=today.getFullYear();
+			min = checkTime(min);
+			sec = checkTime(sec);
+
+			document.getElementById('txt').innerHTML = date + "/" + month + "/" + year + ", " + hour + ":" + min + ":" + sec;
+			document.getElementById('title-time').innerHTML = hour + ":" + min + ":" + sec;
+
+			// console.log(hour + ":" + min + ":" + sec);
+
+			var t = setTimeout(startTime, 500);
+		}
+		function checkTime(i) {
+			if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+			return i;
+		}
+	</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="txt" style="color: brown; font-family: 'Franklin Gothic Medium'; position: absolute; font-size: 60px"></div>
+
+</body>
+</html>
